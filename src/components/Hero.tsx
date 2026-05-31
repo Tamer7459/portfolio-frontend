@@ -174,7 +174,7 @@ export default function Hero({ profile }: { profile: Profile }) {
                             display: 'inline-block'
                         }}
                     />
-                    {'// Full-Stack Developer - Available Now'}
+                    {'// Full-Stack Developer & Finance Graduate'}
                 </motion.div>
 
                 <motion.h1
@@ -217,10 +217,10 @@ export default function Hero({ profile }: { profile: Profile }) {
 
                 <Typewriter
                     texts={[
-                        'Crafting digital experiences with precision and creativity',
-                        'Full-Stack Developer & Problem Solver',
-                        'Building the future, one commit at a time',
-                        'Nothing is true · Everything is permitted'
+                        'Full-Stack Developer & Finance Graduate',
+                        'Building production-grade web applications',
+                        '28+ REST API endpoints · Multi-role access control',
+                        'Cybersecurity · Kali Linux · Scientific Research'
                     ]}
                     delay={0.85}
                 />
@@ -421,7 +421,7 @@ export default function Hero({ profile }: { profile: Profile }) {
                                 animation: 'bdg 3s ease-in-out infinite'
                             }}
                         >
-                            ◈ Web Developer
+                            ◈ Full-Stack Developer
                         </div>
                         <div
                             style={{

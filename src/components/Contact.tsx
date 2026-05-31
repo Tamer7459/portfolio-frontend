@@ -1,8 +1,8 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { sendContact } from '@/lib/api'
-import type { Profile } from '@/lib/api'
+import emailjs from '@emailjs/browser'
+import type { Profile } from '@/lib/data'
 
 type Status = 'idle' | 'sending' | 'success' | 'error'
 type FieldError = {
@@ -140,16 +140,25 @@ export default function Contact({ profile }: { profile: Profile }) {
 
         setStatus('sending')
         try {
-            await sendContact(form)
+            await emailjs.send(
+                process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+                process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+                {
+                    from_name: form.name,
+                    from_email: form.email,
+                    subject: form.subject || 'New Contact Message',
+                    message: form.message
+                },
+                process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+            )
             setStatus('success')
             setForm({ name: '', email: '', subject: '', message: '' })
             setTouched({})
             setErrors({})
-            setTimeout(() => setStatus('idle'), 5000)
-        } catch (error) {
+        } catch {
             setStatus('error')
-            setTimeout(() => setStatus('idle'), 5000)
         }
+        setTimeout(() => setStatus('idle'), 5000)
     }
     const cleanNumber = profile.whatsapp?.replace(/\D/g, '')
 

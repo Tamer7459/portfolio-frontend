@@ -1,9 +1,9 @@
 'use client'
-import { useEffect, useState, use } from 'react'
+import { use, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { getProjects, type Project } from '@/lib/api'
+import { projects } from '@/lib/data'
 
 const pageVariants = {
     hidden: { opacity: 0 },
@@ -18,69 +18,18 @@ const itemVariants = {
     visible: { opacity: 1, y: 0, transition: { duration: 0.7 } }
 }
 
-const floatAnimation = {
-    initial: { y: 0 },
-    animate: {
-        y: [-8, 8, -8],
-        transition: { duration: 4, repeat: Infinity, ease: 'easeInOut' }
-    }
-}
-
 export default function ProjectDetailPage({
     params
 }: {
     params: Promise<{ id: string }>
 }) {
     const { id } = use(params)
-    const [project, setProject] = useState<Project | null>(null)
-    const [allProjects, setAllProjects] = useState<Project[]>([])
-    const [loading, setLoading] = useState(true)
     const projectId = parseInt(id)
 
-    useEffect(() => {
-        const fetchProjects = async () => {
-            try {
-                const projects = await getProjects()
-                setAllProjects(projects)
-                const found = projects.find(p => p.id === projectId)
-                setProject(found || null)
-            } catch (error) {
-                console.error('Failed to fetch projects:', error)
-            } finally {
-                setLoading(false)
-            }
-        }
-        fetchProjects()
+    const { project, allProjects } = useMemo(() => {
+        const found = projects.find(p => p.id === projectId) || null
+        return { project: found, allProjects: projects }
     }, [projectId])
-
-    if (loading) {
-        return (
-            <div
-                style={{
-                    minHeight: '100vh',
-                    display: 'grid',
-                    placeItems: 'center',
-                    background: 'var(--black)'
-                }}
-            >
-                <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: 'linear'
-                    }}
-                    style={{
-                        width: 50,
-                        height: 50,
-                        border: '2px solid rgba(204, 17, 17, 0.15)',
-                        borderTopColor: 'var(--red)',
-                        borderRadius: '50%'
-                    }}
-                />
-            </div>
-        )
-    }
 
     if (!project) {
         return (
