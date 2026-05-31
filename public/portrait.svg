@@ -1,0 +1,28 @@
+<svg width="320" height="490" viewBox="0 0 320 490" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="48" y1="28" x2="272" y2="458" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#050505"/>
+      <stop offset="1" stop-color="#0D0D0D"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(160 330) rotate(90) scale(140 120)">
+      <stop stop-color="#CC1111" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#CC1111" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="face" x1="160" y1="112" x2="160" y2="410" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#231313"/>
+      <stop offset="1" stop-color="#090909"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="490" fill="url(#bg)"/>
+  <rect x="1" y="1" width="318" height="488" stroke="#CC1111" stroke-opacity="0.08"/>
+  <circle cx="160" cy="322" r="116" fill="url(#glow)"/>
+  <path d="M160 88C121 88 92 117 92 156V212C92 249 113 281 146 295V312H133C109 312 90 331 90 355V405H230V355C230 331 211 312 187 312H174V295C207 281 228 249 228 212V156C228 117 199 88 160 88Z" fill="url(#face)"/>
+  <path d="M125 163C125 149 136 138 150 138H170C184 138 195 149 195 163V196C195 214 183 230 166 235V245H154V235C137 230 125 214 125 196V163Z" fill="#120909"/>
+  <path d="M136 162H184" stroke="#CC1111" stroke-opacity="0.28" stroke-width="2"/>
+  <path d="M130 248C130 248 146 260 160 260C174 260 190 248 190 248" stroke="#CC1111" stroke-opacity="0.18" stroke-width="3" stroke-linecap="round"/>
+  <path d="M112 116L138 98L160 123L182 98L208 116" stroke="#CC1111" stroke-opacity="0.12" stroke-width="2"/>
+  <path d="M120 322H200" stroke="#CC1111" stroke-opacity="0.25" stroke-width="1.5"/>
+  <circle cx="160" cy="120" r="20" stroke="#CC1111" stroke-opacity="0.25"/>
+  <path d="M112 372H208" stroke="#CC1111" stroke-opacity="0.08" stroke-width="2"/>
+  <text x="160" y="448" text-anchor="middle" fill="#CC1111" fill-opacity="0.22" font-family="Cinzel Decorative, serif" font-size="28">Ω</text>
+</svg>
