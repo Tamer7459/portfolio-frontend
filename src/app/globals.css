@@ -1216,7 +1216,30 @@ section[id] {
     }
 
     .hero-right-wrap {
-        display: none !important;
+        display: flex !important;
+        justify-content: center;
+        order: 2;
+        margin-top: 40px;
+        width: 100%;
+    }
+
+    .hero-right-wrap > div {
+        max-width: 100% !important;
+        width: 300px !important;
+    }
+
+    .hero-right-wrap img {
+        height: 380px !important;
+        -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%) !important;
+        mask-image: linear-gradient(to bottom, black 80%, transparent 100%) !important;
+    }
+
+    .hero-right-wrap > div > div:not([class]) {
+        right: -12px !important;
+    }
+
+    .hero-section > div:first-of-type {
+        order: 1;
     }
 
     .about-section,
