@@ -31,7 +31,7 @@ export const profile: Profile = {
     role: 'Full-Stack Developer & Finance Graduate',
     bio: 'Abdelkouddous Baali is a self-taught full-stack web developer and Finance graduate from Université Prince Abdelkader, Constantine, Algeria. He builds production-grade web applications using React, Laravel 10, PostgreSQL, Docker, and most major web technologies, with hands-on deployment experience on Vercel and Render.com. His most notable project is GFR — a full-stack academic networking platform with 28+ REST API endpoints and multi-role access control, which won 1st place at a competitive hackathon. He also conceptualized ProDZ, a startup targeting Algeria\'s service provider market. Beyond development, he combines serious interest in cybersecurity (Kali Linux, Metasploit, web security) with academic research, and aims long-term to specialize in scientific research and pursue postgraduate studies in Italy.',
     photo_url: 'https://res.cloudinary.com/dme6jhgkm/image/upload/v1780237622/my_photo_gfggko.jpg',
-    cv_url: 'https://drive.google.com/file/d/1_GnzA6R0in0QnPMqCs-z52sjUkbeS-8o/view?usp=sharing',
+    cv_url: 'https://drive.google.com/file/d/11-0TC8jBbgAN-OUrh4K11C_1lydzVj5d/view?usp=sharing',
     github: 'https://github.com/Tamer7459',
     linkedin: 'https://linkedin.com/in/abdelkouddous-bali-28032436a',
     email: 'tamerinale@gmail.com',
