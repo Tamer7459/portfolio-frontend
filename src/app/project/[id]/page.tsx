@@ -1,5 +1,5 @@
 'use client'
-import { use, useMemo } from 'react'
+import { use, useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -65,6 +65,8 @@ export default function ProjectDetailPage({
     }
 
     const safeTags = Array.isArray(project.tags) ? project.tags : []
+    const [selectedMedia, setSelectedMedia] = useState(0)
+    const [lightboxOpen, setLightboxOpen] = useState(false)
     const statusLabel = (project.status || 'unknown').toUpperCase()
     const currentIndex = allProjects.findIndex(p => p.id === projectId)
     const nextProject = allProjects[(currentIndex + 1) % allProjects.length]
@@ -115,6 +117,7 @@ export default function ProjectDetailPage({
                                 sizes="100vw"
                                 className="project-detail-hero-img"
                                 priority
+                                loading="eager"
                             />
                         </motion.div>
                         <div
@@ -314,6 +317,236 @@ export default function ProjectDetailPage({
                                 {description}
                             </p>
                         </motion.div>
+
+                        {/* Media Gallery */}
+                        {project.media && project.media.length > 0 && (
+                            <motion.div
+                                style={{ marginBottom: 80 }}
+                                variants={itemVariants}
+                            >
+                                <h2
+                                    style={{
+                                        fontSize: 28,
+                                        fontWeight: 800,
+                                        marginBottom: 24,
+                                        color: 'var(--white)',
+                                        letterSpacing: -0.5,
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: 12
+                                    }}
+                                >
+                                    <span style={{ width: 3, height: 28, background: 'var(--red)', borderRadius: 2, display: 'block' }} />
+                                    Gallery
+                                </h2>
+
+                                {/* Main Media Display */}
+                                <motion.div
+                                    key={selectedMedia}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ duration: 0.3 }}
+                                    style={{
+                                        position: 'relative',
+                                        width: '100%',
+                                        height: 400,
+                                        borderRadius: 12,
+                                        overflow: 'hidden',
+                                        border: '1px solid rgba(204, 17, 17, 0.2)',
+                                        marginBottom: 16,
+                                        cursor: 'pointer'
+                                    }}
+                                    onClick={() => setLightboxOpen(true)}
+                                >
+                                    {project.media[selectedMedia].type === 'video' ? (
+                                        <video
+                                            src={project.media[selectedMedia].url}
+                                            controls
+                                            style={{ width: '100%', height: '100%', objectFit: 'contain', background: '#000' }}
+                                        />
+                                    ) : (
+                                        <Image
+                                            src={project.media[selectedMedia].url}
+                                            alt={`${project.title} screenshot ${selectedMedia + 1}`}
+                                            fill
+                                            sizes="(max-width: 1200px) 100vw, 800px"
+                                            style={{ objectFit: 'contain', background: '#111' }}
+                                        />
+                                    )}
+                                </motion.div>
+
+                                {/* Thumbnails */}
+                                <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+                                    {project.media.map((item, idx) => (
+                                        <motion.button
+                                            key={idx}
+                                            whileHover={{ scale: 1.05, borderColor: 'var(--red)' }}
+                                            whileTap={{ scale: 0.95 }}
+                                            onClick={() => setSelectedMedia(idx)}
+                                            style={{
+                                                width: 80,
+                                                height: 60,
+                                                borderRadius: 8,
+                                                overflow: 'hidden',
+                                                border: selectedMedia === idx
+                                                    ? '2px solid var(--red)'
+                                                    : '2px solid rgba(204, 17, 17, 0.2)',
+                                                cursor: 'pointer',
+                                                padding: 0,
+                                                background: '#111',
+                                                position: 'relative',
+                                                transition: 'border-color 0.2s'
+                                            }}
+                                        >
+                                            {item.type === 'video' ? (
+                                                <div
+                                                    style={{
+                                                        width: '100%',
+                                                        height: '100%',
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'center',
+                                                        fontSize: 20,
+                                                        color: 'var(--red)'
+                                                    }}
+                                                >
+                                                    ▶
+                                                </div>
+                                            ) : (
+                                                <Image
+                                                    src={item.url}
+                                                    alt={`${project.title} thumbnail ${idx + 1}`}
+                                                    fill
+                                                    sizes="80px"
+                                                    style={{ objectFit: 'cover' }}
+                                                />
+                                            )}
+                                        </motion.button>
+                                    ))}
+                                </div>
+                            </motion.div>
+                        )}
+
+                        {/* Lightbox */}
+                        {lightboxOpen && project.media && project.media[selectedMedia] && (
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                style={{
+                                    position: 'fixed',
+                                    inset: 0,
+                                    zIndex: 9999,
+                                    background: 'rgba(0,0,0,0.95)',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    cursor: 'pointer'
+                                }}
+                                onClick={() => setLightboxOpen(false)}
+                            >
+                                <div
+                                    style={{
+                                        position: 'relative',
+                                        width: '90vw',
+                                        height: '90vh'
+                                    }}
+                                    onClick={e => e.stopPropagation()}
+                                >
+                                    {project.media[selectedMedia].type === 'video' ? (
+                                        <video
+                                            src={project.media[selectedMedia].url}
+                                            controls
+                                            autoPlay
+                                            style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                                        />
+                                    ) : (
+                                        <Image
+                                            src={project.media[selectedMedia].url}
+                                            alt={`${project.title} full size`}
+                                            fill
+                                            sizes="90vw"
+                                            style={{ objectFit: 'contain' }}
+                                        />
+                                    )}
+                                </div>
+                                <button
+                                    onClick={() => setLightboxOpen(false)}
+                                    style={{
+                                        position: 'absolute',
+                                        top: 24,
+                                        right: 24,
+                                        background: 'rgba(204,17,17,0.8)',
+                                        border: 'none',
+                                        color: '#fff',
+                                        width: 40,
+                                        height: 40,
+                                        borderRadius: '50%',
+                                        fontSize: 20,
+                                        cursor: 'pointer',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center'
+                                    }}
+                                >
+                                    ✕
+                                </button>
+                                {/* Navigation arrows */}
+                                {project.media.length > 1 && (
+                                    <>
+                                        <button
+                                            onClick={e => {
+                                                e.stopPropagation()
+                                                setSelectedMedia(prev => (prev - 1 + project.media.length) % project.media.length)
+                                            }}
+                                            style={{
+                                                position: 'absolute',
+                                                left: 24,
+                                                top: '50%',
+                                                transform: 'translateY(-50%)',
+                                                background: 'rgba(204,17,17,0.8)',
+                                                border: 'none',
+                                                color: '#fff',
+                                                width: 44,
+                                                height: 44,
+                                                borderRadius: '50%',
+                                                fontSize: 18,
+                                                cursor: 'pointer',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center'
+                                            }}
+                                        >
+                                            ←
+                                        </button>
+                                        <button
+                                            onClick={e => {
+                                                e.stopPropagation()
+                                                setSelectedMedia(prev => (prev + 1) % project.media.length)
+                                            }}
+                                            style={{
+                                                position: 'absolute',
+                                                right: 24,
+                                                top: '50%',
+                                                transform: 'translateY(-50%)',
+                                                background: 'rgba(204,17,17,0.8)',
+                                                border: 'none',
+                                                color: '#fff',
+                                                width: 44,
+                                                height: 44,
+                                                borderRadius: '50%',
+                                                fontSize: 18,
+                                                cursor: 'pointer',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center'
+                                            }}
+                                        >
+                                            →
+                                        </button>
+                                    </>
+                                )}
+                            </motion.div>
+                        )}
 
                         {/* Technologies */}
                         <motion.div
