@@ -43,7 +43,7 @@ export const profile: Profile = {
     email: 'tamerinale@gmail.com',
     whatsapp: '+213549964508',
     years_experience: 2,
-    projects_count: 10,
+    projects_count: 14,
     skills: []
 }
 
@@ -62,6 +62,28 @@ export const blogPosts: BlogPost[] = []
 export const projects: Project[] = [
     {
         id: 1,
+        title: 'INVOICEPRO',
+        subtitle: 'Smart Invoicing SaaS (Next.js, TypeScript, Tailwind CSS)',
+        description: 'Invoice Pro is a professional SaaS invoicing application built with Next.js that allows users to create, customize, and send professional invoices instantly. The platform features smart invoicing with auto-calculations, client management, real-time analytics for revenue tracking, multi-currency support (USD, EUR, DZD), PDF export, and secure cloud storage. It offers a responsive interface with multiple pricing tiers (Free, Professional, Business) and supports WhatsApp sharing of invoices.\n\nThe front-end is built with Next.js, TypeScript, and Tailwind CSS, delivering a modern, accessible, and responsive user experience with features such as form validation, dark/light mode, and internationalization. The application follows a clean component architecture with reusable UI components, client-side state management, and a well-structured routing system.\n\nOverall, this project demonstrates full-stack SaaS application development, covering authentication, payment integration, PDF generation, multi-currency support, and responsive UI design. It serves as a practical solution for businesses of all sizes looking to streamline their billing process.',
+        tags: [
+            { id: 46, name: 'Next.js' },
+            { id: 47, name: 'TypeScript' },
+            { id: 48, name: 'Tailwind CSS' },
+            { id: 49, name: 'Prisma' },
+            { id: 50, name: 'PostgreSQL' }
+        ],
+        github_url: 'https://github.com/Tamer7459/INVOICEPRO-frontend',
+        live_url: 'https://invoicepro-frontend-rho.vercel.app/',
+        image_url: '/projects/INVOICEPRO.png',
+        media: [
+            { type: 'image', url: '/projects/INVOICEPRO.png' },
+            { type: 'image', url: '/projects/invoicepro-create.png' }
+        ],
+        status: 'live',
+        featured: true
+    },
+    {
+        id: 2,
         title: 'Modern Healthcare Management System',
         subtitle: 'CareFlow - Hospital Management System (Next.js, Radix UI, Zustand)',
         description: 'A comprehensive hospital management platform built with Next.js called CareFlow, designed to streamline healthcare operations through a modern, accessible, and responsive interface.\n\nThe system features a complete patient management workflow including appointment booking and scheduling with real-time availability tracking, secure medical records storage with patient history and vital signs management, and dedicated portals for patients, doctors, and administrators with role-based access control.\n\nThe front-end is built with React 19, Next.js, TypeScript, and Tailwind CSS, utilizing Radix UI primitives for accessible components, React Hook Form with resolvers for form validation, Zustand for state management, and Axios for API communication. The platform includes interactive health data analytics with Recharts, toast notifications via Sonner, theme switching with next-themes, and a comprehensive icon system using Lucide React.\n\nOverall, this project demonstrates full-stack healthcare application development, covering complex state management, form validation, role-based authentication, responsive UI design, and data visualization - making it a strong portfolio piece for modern web application engineering.',
@@ -84,7 +106,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 2,
+        id: 3,
         title: 'Le Bon Cion Nouri Mila',
         subtitle: 'E-Commerce Storefront with Admin Dashboard (Upstash Redis)',
         description: 'A modern e-commerce platform built with Next.js for Le Bon Cion Nouri Mila, a retail store in Mila, Algeria. The application features a full product catalog with search and category filtering, detailed product pages with images and pricing, an admin dashboard for inventory and order management, and a location-aware contact section. The front-end delivers a responsive shopping experience with smooth animations using Framer Motion, while the back-end leverages Upstash Redis for fast data storage and retrieval. The platform includes sales analytics via Recharts, multi-language support (French), Facebook integration, and a secure admin panel for managing products and orders.',
@@ -104,7 +126,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 3,
+        id: 4,
         title: 'GFR Project',
         subtitle: 'Full-Stack Web Application (1st Place Hackathon Winner)',
         description: 'The GFR Project is a full-stack web application composed of a modern React front-end and a Laravel back-end API, designed to simulate a real production-level system with clear separation between presentation layer and business logic.\n\nThe front-end is responsible for rendering a responsive and interactive user interface, managing client-side state, and consuming RESTful APIs. It focuses on performance, modular components, and a clean user experience.\n\nThe back-end is built using Laravel and provides a structured API layer that handles authentication, authorization, role-based access control (RBAC), and database operations. It implements secure data handling, migrations, seeders, and follows RESTful design principles.\n\nThe system is configured for scalable deployment using Docker and supports production environments through tools such as Nginx, Vercel (front-end), and Render (back-end). Environment variables are used to separate development and production configurations, ensuring flexibility and security.\n\nOverall, the project demonstrates full-stack development skills, including API design, front-end integration, database management, and deployment workflows, making it suitable as a portfolio-level application for demonstrating real-world engineering practices.',
@@ -123,7 +145,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 4,
+        id: 5,
         title: 'LibraSys',
         subtitle: 'Library Management System Built with Django',
         description: 'LibraSys is a web-based Library Management System developed using Django. It enables efficient management of books, categories, and users through a structured backend and clean interface. The project focuses on backend development, database management, search functionality, and Django\'s MVT architecture while providing an admin dashboard for easy library operations.',
@@ -144,7 +166,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 5,
+        id: 6,
         title: 'XO Game',
         subtitle: 'Tic Tac Toe - DOM Manipulation & Game State Logic',
         description: 'A lightweight front-end project that implements the Tic Tac Toe game using vanilla JavaScript. The application focuses on state management, event handling, and dynamic UI updates, making it a solid example for beginners learning core web development concepts.',
@@ -164,7 +186,7 @@ export const projects: Project[] = [
         featured: false
     },
     {
-        id: 6,
+        id: 7,
         title: 'CURDS',
         subtitle: 'CRUD Web Application (Create, Read, Update, Delete)',
         description: 'The CURDS project is a simple and lightweight web application built using HTML, CSS, and JavaScript, designed to demonstrate the fundamental operations of data management in web development.\n\nThe system allows users to create, display, update, and delete records dynamically in the browser without requiring a backend server. All data is handled on the client side using JavaScript, making it a perfect example for understanding DOM manipulation and state handling in vanilla JavaScript.\n\nThe interface is designed to be clean and user-friendly, ensuring smooth interaction and fast performance. This project is mainly focused on strengthening core front-end development skills and understanding how CRUD logic works in real-world applications.\n\n⚙️ Key Concepts Demonstrated:\nDOM manipulation\nEvent handling in JavaScript\nDynamic UI updates\nLocal state management (client-side)\nCRUD logic implementation',
@@ -183,7 +205,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 7,
+        id: 8,
         title: 'Drag-and-Drop',
         subtitle: 'Interactive Drag and Drop Interface using JavaScript',
         description: 'A lightweight front-end project that demonstrates drag-and-drop functionality using vanilla JavaScript. The application allows users to move elements dynamically between containers through mouse interactions, showcasing core concepts such as event handling, DOM manipulation, and the HTML5 Drag and Drop API. It is designed as a practical example for understanding interactive UI behavior without relying on external libraries or frameworks.',
@@ -202,7 +224,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 8,
+        id: 9,
         title: 'Make-a-creative-landing-page',
         subtitle: 'Modern UI Landing Page for Web Projects',
         description: 'A clean, responsive, and interactive landing page built with HTML, CSS, and JavaScript, designed to deliver an engaging user experience and professional visual presentation.',
@@ -221,7 +243,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 9,
+        id: 10,
         title: 'Calculator',
         subtitle: 'Simple, Responsive & Interactive Web Calculator',
         description: 'A basic yet functional calculator built using HTML, CSS, and JavaScript, allowing users to perform standard arithmetic operations with a clean and user-friendly interface.',
@@ -240,7 +262,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 10,
+        id: 11,
         title: 'Make-a-Scrolling-Website',
         subtitle: 'Smooth Scrolling, Modern UI & Interactive Web Experience',
         description: 'A modern scrolling website built with HTML, CSS, and JavaScript, featuring smooth navigation between sections and an engaging user experience.',
@@ -259,7 +281,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 11,
+        id: 12,
         title: 'Make-a-Image-Edito',
         subtitle: 'Simple, Fast & Interactive Image Editing Tool',
         description: 'A lightweight web-based image editor built with HTML, CSS, and JavaScript that allows users to apply basic filters and adjustments to images directly in the browser.',
@@ -278,7 +300,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 12,
+        id: 13,
         title: 'Todo List App',
         subtitle: 'Simple, Efficient & Interactive Task Management Application',
         description: 'A modern Todo List web application built with React that allows users to create, manage, and track daily tasks with a clean and responsive user interface.',
@@ -296,7 +318,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 13,
+        id: 14,
         title: 'Prayer Times App',
         subtitle: 'Accurate, Simple & Real-Time Prayer Time Tracker',
         description: 'A web application that displays daily Islamic prayer times based on the user\'s location using API integration, built with a clean and responsive interface.',
