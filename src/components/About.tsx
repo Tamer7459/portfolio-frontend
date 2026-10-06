@@ -12,6 +12,13 @@ const workExperience = [
         highlight: 'ProDZ concept (Service marketplace)'
     },
     {
+        period: '2024 - Present',
+        role: 'Programming Mentor & Instructor',
+        company: 'Teaching & Mentorship',
+        achievement: 'Teaching programming across web, mobile & desktop',
+        highlight: 'Practical coaching, real projects, beginner to builder'
+    },
+    {
         period: '2023 - 2024',
         role: 'Junior Developer',
         company: 'Self-Taught & Academic',
@@ -41,6 +48,12 @@ const achievementsData = [
         year: '2024'
     },
     {
+        icon: 'graduation',
+        title: 'Programming Mentor',
+        description: 'Teaching programming across web, mobile & desktop — turning beginners into confident builders',
+        year: 'Ongoing'
+    },
+    {
         icon: 'shield',
         title: 'Cybersecurity Interest',
         description: 'Kali Linux, Metasploit, Web Security - Combining development with security expertise',
@@ -68,6 +81,11 @@ const coreValuesData = [
         icon: 'target',
         title: 'Quality',
         description: 'Delivering clean, maintainable code with comprehensive testing'
+    },
+    {
+        icon: 'users',
+        title: 'Mentorship',
+        description: 'Sharing knowledge and guiding new developers through practical, project-based learning'
     }
 ]
 
@@ -583,7 +601,7 @@ export default function About({ profile }: { profile: Profile }) {
                         backgroundClip: 'text'
                     }}
                 >
-                    Software Engineer · Web, Mobile & Desktop Apps
+                    Software Engineer & Programming Mentor
                 </h2>
                 <p
                     style={{
@@ -593,7 +611,7 @@ export default function About({ profile }: { profile: Profile }) {
                         lineHeight: 1.6
                     }}
                 >
-                    Transforming ideas into elegant, scalable web, mobile & desktop solutions with modern technologies and creative problem-solving.
+                    I build elegant, scalable web, mobile & desktop applications — and teach others to do the same, from first line of code to production.
                 </p>
             </motion.div>
 

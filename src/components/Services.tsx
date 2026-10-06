@@ -1,7 +1,7 @@
 'use client'
 import { useRef, useState, useCallback } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Zap, Code, Smartphone, Database, Rocket, Shield } from 'lucide-react'
+import { Zap, Code, Smartphone, Database, Rocket, Shield, GraduationCap } from 'lucide-react'
 
 interface Service {
     icon: React.ReactNode
@@ -59,6 +59,14 @@ const services: Service[] = [
         description:
             'Comprehensive testing strategies and security best practices to ensure application reliability.',
         tags: ['Jest', 'Cypress', 'Security', 'QA']
+    },
+    {
+        icon: <GraduationCap size={20} />,
+        number: '07',
+        title: 'Teaching & Mentorship',
+        description:
+            'Programming instruction across web, mobile, and desktop — from fundamentals to production-ready skills.',
+        tags: ['Web', 'Mobile', 'Desktop', 'Mentorship']
     }
 ]
 

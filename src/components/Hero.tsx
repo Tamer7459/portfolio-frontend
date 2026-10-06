@@ -217,8 +217,8 @@ export default function Hero({ profile }: { profile: Profile }) {
 
                 <Typewriter
                     texts={[
-                        'Software Engineer · Web, Mobile & Desktop',
-                        'Building web, mobile & desktop applications',
+                        'Software Engineer & Mentor · Web, Mobile & Desktop',
+                        'Building & teaching web, mobile & desktop apps',
                         '28+ REST API endpoints · Multi-role access control',
                         'Cybersecurity · Kali Linux · Scientific Research'
                     ]}
