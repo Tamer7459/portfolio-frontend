@@ -174,7 +174,7 @@ export default function Hero({ profile }: { profile: Profile }) {
                             display: 'inline-block'
                         }}
                     />
-                    {'// Software Engineer & Finance Graduate'}
+                    {'// Software Engineer'}
                 </motion.div>
 
                 <motion.h1
@@ -217,7 +217,7 @@ export default function Hero({ profile }: { profile: Profile }) {
 
                 <Typewriter
                     texts={[
-                        'Software Engineer & Finance Graduate',
+                        'Software Engineer',
                         'Building production-grade web applications',
                         '28+ REST API endpoints · Multi-role access control',
                         'Cybersecurity · Kali Linux · Scientific Research'

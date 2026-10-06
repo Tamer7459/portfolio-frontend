@@ -35,12 +35,6 @@ const achievementsData = [
         year: '2024'
     },
     {
-        icon: 'graduation',
-        title: 'Finance Graduate',
-        description: 'Université Prince Abdelkader, Constantine - Bridging business & technology',
-        year: '2023'
-    },
-    {
         icon: 'rocket',
         title: 'Startup Founder',
         description: 'Conceptualized ProDZ - Service provider marketplace targeting Algerian market',
