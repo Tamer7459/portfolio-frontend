@@ -44,7 +44,7 @@ export const profile: Profile = {
     email: 'tamerinale@gmail.com',
     whatsapp: '+213549964508',
     years_experience: 3,
-    projects_count: 16,
+    projects_count: 18,
     skills: []
 }
 
@@ -63,6 +63,44 @@ export const blogPosts: BlogPost[] = []
 export const projects: Project[] = [
     {
         id: 1,
+        title: 'Sport avec Boubker',
+        category: 'best',
+        subtitle: 'Gym Management Platform (Next.js, Zustand, Recharts)',
+        description: 'Sport avec Boubker is a gym management platform built with Next.js 14 for a sports hall, delivered in French with full internationalization. It centralizes member management, subscriptions, and daily gym operations in a modern responsive interface with dark/light theme support.\n\nThe front-end is built with React 18, TypeScript, and Tailwind CSS, using next-intl for translations, next-themes for theming, Zustand for client-side state management, and Lucide icons throughout. Recharts powers analytics dashboards giving gym owners insight into memberships and activity, while a dedicated TypeScript back-end exposes the API consumed by the app.\n\nDeployed on Vercel with a clean modular architecture (app router, components, store, types), the project demonstrates production SaaS development for local businesses — multilingual UX, real-time dashboards, and scalable state management in a real client-facing product.',
+        tags: [
+            { id: 57, name: 'Next.js' },
+            { id: 58, name: 'TypeScript' },
+            { id: 59, name: 'Tailwind CSS' },
+            { id: 60, name: 'Zustand' }
+        ],
+        github_url: 'https://github.com/Tamer7459/Sport-avec-Boubker-frontend',
+        live_url: 'https://sport-avec-boubker-frontend.vercel.app',
+        image_url: null,
+        media: [],
+        status: 'live',
+        featured: true
+    },
+    {
+        id: 2,
+        title: 'Tamer Academy',
+        category: 'best',
+        subtitle: 'Programming Learning App (Flutter, Dart, Firebase)',
+        description: 'Tamer Academy is a Flutter educational application (v1.0.0+) that teaches programming, available on both Android and web via Firebase Hosting. Built entirely with Dart and Flutter, it delivers coding lessons with syntax-highlighted code display, custom Google Fonts typography, and offline-friendly preferences — directly extending the mentor mission into a product.\n\nThe app integrates Firebase Authentication with Google Sign-In, Cloud Firestore and Firebase Storage for lesson content, plus Supabase as an additional backend. State is managed with Provider, content can be embedded through WebView, and flutter_localizations with intl provide a localized experience.\n\nWith its own brand identity, versioned releases up to build 57, APK build automation, and Firestore security rules, Tamer Academy demonstrates complete mobile product ownership — from curriculum-style content delivery to authentication, cloud backends, and multi-platform deployment on Android and the web.',
+        tags: [
+            { id: 61, name: 'Flutter' },
+            { id: 62, name: 'Dart' },
+            { id: 63, name: 'Firebase' },
+            { id: 64, name: 'Supabase' }
+        ],
+        github_url: 'https://github.com/Tamer7459/tamer-academy',
+        live_url: 'https://tamer-academy.web.app',
+        image_url: null,
+        media: [],
+        status: 'live',
+        featured: true
+    },
+    {
+        id: 3,
         title: 'GFR Platform',
         category: 'team',
         subtitle: 'Global Academic Network for Researchers (Team Project · Django)',
@@ -82,7 +120,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 2,
+        id: 4,
         title: 'NERO',
         category: 'team',
         subtitle: 'Rehabilitation Care Marketplace (Team Project · Django)',
@@ -102,7 +140,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 3,
+        id: 5,
         title: 'INVOICEPRO',
         category: 'best',
         subtitle: 'Smart Invoicing SaaS (Next.js, TypeScript, Tailwind CSS)',
@@ -125,7 +163,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 4,
+        id: 6,
         title: 'Modern Healthcare Management System',
         category: 'best',
         subtitle: 'CareFlow - Hospital Management System (Next.js, Radix UI, Zustand)',
@@ -149,7 +187,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 5,
+        id: 7,
         title: 'Le Bon Cion Nouri Mila',
         category: 'best',
         subtitle: 'E-Commerce Storefront with Admin Dashboard (Upstash Redis)',
@@ -170,7 +208,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 6,
+        id: 8,
         title: 'GFR Project',
         category: 'best',
         subtitle: 'Full-Stack Web Application (1st Place Hackathon Winner)',
@@ -190,7 +228,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 7,
+        id: 9,
         title: 'LibraSys',
         category: 'best',
         subtitle: 'Library Management System Built with Django',
@@ -212,7 +250,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 8,
+        id: 10,
         title: 'XO Game',
         category: 'simple',
         subtitle: 'Tic Tac Toe - DOM Manipulation & Game State Logic',
@@ -233,7 +271,7 @@ export const projects: Project[] = [
         featured: false
     },
     {
-        id: 9,
+        id: 11,
         title: 'CURDS',
         category: 'simple',
         subtitle: 'CRUD Web Application (Create, Read, Update, Delete)',
@@ -253,7 +291,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 10,
+        id: 12,
         title: 'Drag-and-Drop',
         category: 'simple',
         subtitle: 'Interactive Drag and Drop Interface using JavaScript',
@@ -273,7 +311,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 11,
+        id: 13,
         title: 'Make-a-creative-landing-page',
         category: 'simple',
         subtitle: 'Modern UI Landing Page for Web Projects',
@@ -293,7 +331,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 12,
+        id: 14,
         title: 'Calculator',
         category: 'simple',
         subtitle: 'Simple, Responsive & Interactive Web Calculator',
@@ -313,7 +351,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 13,
+        id: 15,
         title: 'Make-a-Scrolling-Website',
         category: 'simple',
         subtitle: 'Smooth Scrolling, Modern UI & Interactive Web Experience',
@@ -333,7 +371,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 14,
+        id: 16,
         title: 'Make-a-Image-Edito',
         category: 'simple',
         subtitle: 'Simple, Fast & Interactive Image Editing Tool',
@@ -353,7 +391,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 15,
+        id: 17,
         title: 'Todo List App',
         category: 'simple',
         subtitle: 'Simple, Efficient & Interactive Task Management Application',
@@ -372,7 +410,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 16,
+        id: 18,
         title: 'Prayer Times App',
         category: 'simple',
         subtitle: 'Accurate, Simple & Real-Time Prayer Time Tracker',
