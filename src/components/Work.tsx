@@ -13,6 +13,30 @@ const containerVariants = {
     }
 }
 
+const workCategories = [
+    {
+        key: 'team',
+        tag: '002-A · Team Work',
+        title: 'Built With a Team',
+        hint: 'Collaborative missions',
+        emptyNote: '// New team missions incoming — collaborations will appear here'
+    },
+    {
+        key: 'best',
+        tag: '002-B · Best Work',
+        title: 'Flagship Projects',
+        hint: 'Selected premium builds',
+        emptyNote: ''
+    },
+    {
+        key: 'simple',
+        tag: '002-C · Simple Works',
+        title: 'Small Builds & Experiments',
+        hint: 'Practice pieces & utilities',
+        emptyNote: ''
+    }
+] as const
+
 export default function Work({ projects }: { projects: Project[] }) {
     const ref = useRef<HTMLElement>(null)
     const inView = useInView(ref, { once: false, margin: '-60px' })
@@ -61,21 +85,97 @@ export default function Work({ projects }: { projects: Project[] }) {
                 </span>
             </motion.div>
 
-            <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                animate={inView ? 'visible' : 'hidden'}
-                style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
-                    gap: 28,
-                    width: '100%'
-                }}
-            >
-                {projects.map((project, i) => (
-                    <ProjectCard key={project.id} project={project} index={i} />
-                ))}
-            </motion.div>
+            {workCategories.map(cat => {
+                const catProjects = projects.filter(p => p.category === cat.key)
+                return (
+                    <div key={cat.key} style={{ marginBottom: 72 }}>
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={inView ? { opacity: 1, y: 0 } : {}}
+                            transition={{ duration: 0.6 }}
+                            style={{
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                alignItems: 'flex-end',
+                                marginBottom: 32,
+                                paddingBottom: 16,
+                                borderBottom: '1px solid rgba(204, 17, 17, 0.15)'
+                            }}
+                        >
+                            <div>
+                                <div className="sec-tag">{cat.tag}</div>
+                                <h3
+                                    style={{
+                                        fontSize: 'clamp(22px, 3vw, 34px)',
+                                        fontWeight: 800,
+                                        letterSpacing: -1,
+                                        color: 'var(--white)'
+                                    }}
+                                >
+                                    {cat.title}
+                                </h3>
+                                <p
+                                    style={{
+                                        fontFamily: "'DM Mono', monospace",
+                                        fontSize: 11,
+                                        letterSpacing: 1.5,
+                                        color: 'var(--dim)',
+                                        marginTop: 6
+                                    }}
+                                >
+                                    {cat.hint}
+                                </p>
+                            </div>
+                            <span
+                                style={{
+                                    fontFamily: "'DM Mono', monospace",
+                                    fontSize: 11,
+                                    letterSpacing: 2,
+                                    color: 'var(--red2)'
+                                }}
+                            >
+                                {String(catProjects.length).padStart(2, '0')}
+                            </span>
+                        </motion.div>
+
+                        {catProjects.length > 0 ? (
+                            <motion.div
+                                variants={containerVariants}
+                                initial="hidden"
+                                animate={inView ? 'visible' : 'hidden'}
+                                style={{
+                                    display: 'grid',
+                                    gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
+                                    gap: 28,
+                                    width: '100%'
+                                }}
+                            >
+                                {catProjects.map((project, i) => (
+                                    <ProjectCard key={project.id} project={project} index={i} />
+                                ))}
+                            </motion.div>
+                        ) : (
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={inView ? { opacity: 1 } : {}}
+                                transition={{ duration: 0.6 }}
+                                style={{
+                                    border: '1px dashed rgba(204, 17, 17, 0.35)',
+                                    borderRadius: 12,
+                                    padding: '36px 24px',
+                                    textAlign: 'center',
+                                    fontFamily: "'DM Mono', monospace",
+                                    fontSize: 12,
+                                    letterSpacing: 1,
+                                    color: 'rgba(204, 17, 17, 0.7)'
+                                }}
+                            >
+                                {cat.emptyNote}
+                            </motion.div>
+                        )}
+                    </div>
+                )
+            })}
         </section>
     )
 }
