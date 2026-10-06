@@ -72,10 +72,12 @@ export const projects: Project[] = [
             { id: 52, name: 'Python' },
             { id: 53, name: 'JavaScript' }
         ],
-        github_url: 'https://github.com/Tamer7459/gfr-platform',
+        github_url: 'https://github.com/dakirBLM/gfr-platform',
         live_url: 'https://gfr-platform.onrender.com',
-        image_url: null,
-        media: [],
+        image_url: '/projects/gfr-platform.jpg',
+        media: [
+            { type: 'image', url: '/projects/gfr-platform.jpg' }
+        ],
         status: 'live',
         featured: true
     },
@@ -90,10 +92,12 @@ export const projects: Project[] = [
             { id: 55, name: 'Python' },
             { id: 56, name: 'JavaScript' }
         ],
-        github_url: '',
+        github_url: 'https://github.com/dakirBLM/Nero',
         live_url: 'https://nero-69la.onrender.com',
-        image_url: null,
-        media: [],
+        image_url: '/projects/nero.jpg',
+        media: [
+            { type: 'image', url: '/projects/nero.jpg' }
+        ],
         status: 'live',
         featured: true
     },
