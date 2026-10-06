@@ -1,7 +1,7 @@
 'use client'
 import { useRef, useState, useCallback } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Zap, Code, Smartphone, Database, Rocket, Shield, GraduationCap } from 'lucide-react'
+import { Zap, Code, Smartphone, Monitor, Database, Rocket, Shield, GraduationCap } from 'lucide-react'
 
 interface Service {
     icon: React.ReactNode
@@ -31,14 +31,22 @@ const services: Service[] = [
     {
         icon: <Smartphone size={20} />,
         number: '03',
-        title: 'Mobile & Desktop Development',
+        title: 'Mobile Development',
         description:
-            'Cross-platform solutions for mobile and desktop that work seamlessly across all devices with native performance.',
+            'Cross-platform mobile apps that work seamlessly across all devices with native performance.',
         tags: ['React Native', 'Flutter', 'iOS', 'Android']
     },
     {
-        icon: <Database size={20} />,
+        icon: <Monitor size={20} />,
         number: '04',
+        title: 'Desktop Development',
+        description:
+            'Powerful desktop applications for Windows, macOS, and Linux with native look, feel, and performance.',
+        tags: ['Windows', 'macOS', 'Linux', 'Cross-platform']
+    },
+    {
+        icon: <Database size={20} />,
+        number: '05',
         title: 'Database Design',
         description:
             'Optimized database architectures for performance, scalability, and reliability at any scale.',
@@ -46,7 +54,7 @@ const services: Service[] = [
     },
     {
         icon: <Rocket size={20} />,
-        number: '05',
+        number: '06',
         title: 'DevOps & Deployment',
         description:
             'CI/CD pipelines, containerization, and cloud deployment for seamless production workflows.',
@@ -54,7 +62,7 @@ const services: Service[] = [
     },
     {
         icon: <Shield size={20} />,
-        number: '06',
+        number: '07',
         title: 'Security & Testing',
         description:
             'Comprehensive testing strategies and security best practices to ensure application reliability.',
@@ -62,7 +70,7 @@ const services: Service[] = [
     },
     {
         icon: <GraduationCap size={20} />,
-        number: '07',
+        number: '08',
         title: 'Teaching & Mentorship',
         description:
             'Programming instruction across web, mobile, and desktop — from fundamentals to production-ready skills.',
