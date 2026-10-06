@@ -6,7 +6,7 @@ import type { Profile } from '@/lib/api'
 const workExperience = [
     {
         period: '2024 - Present',
-        role: 'Full Stack Developer',
+        role: 'Software Engineer',
         company: 'Freelance & Startup',
         achievement: 'Built 10+ production projects',
         highlight: 'ProDZ concept (Service marketplace)'
@@ -588,7 +588,7 @@ export default function About({ profile }: { profile: Profile }) {
                         backgroundClip: 'text'
                     }}
                 >
-                    Full-Stack Developer & Digital Creator
+                    Software Engineer & Digital Creator
                 </h2>
                 <p
                     style={{

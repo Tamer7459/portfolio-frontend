@@ -174,7 +174,7 @@ export default function Hero({ profile }: { profile: Profile }) {
                             display: 'inline-block'
                         }}
                     />
-                    {'// Full-Stack Developer & Finance Graduate'}
+                    {'// Software Engineer & Finance Graduate'}
                 </motion.div>
 
                 <motion.h1
@@ -217,7 +217,7 @@ export default function Hero({ profile }: { profile: Profile }) {
 
                 <Typewriter
                     texts={[
-                        'Full-Stack Developer & Finance Graduate',
+                        'Software Engineer & Finance Graduate',
                         'Building production-grade web applications',
                         '28+ REST API endpoints · Multi-role access control',
                         'Cybersecurity · Kali Linux · Scientific Research'
@@ -421,7 +421,7 @@ export default function Hero({ profile }: { profile: Profile }) {
                                 animation: 'bdg 3s ease-in-out infinite'
                             }}
                         >
-                            ◈ Full-Stack Developer
+                            ◈ Software Engineer
                         </div>
                         <div
                             style={{
