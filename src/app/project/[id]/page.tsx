@@ -118,6 +118,7 @@ export default function ProjectDetailPage({
                                 className="project-detail-hero-img"
                                 priority
                                 loading="eager"
+                                style={{ objectFit: 'contain', objectPosition: 'center' }}
                             />
                         </motion.div>
                         <div
@@ -705,13 +706,13 @@ export default function ProjectDetailPage({
                                 whileHover={{ scale: 1.02 }}
                                 transition={{ type: 'spring', stiffness: 200 }}
                             >
-                                <div style={{ position: 'relative', width: '100%', height: 220 }}>
+                                <div style={{ position: 'relative', width: '100%', height: 260, background: '#0a0a0a' }}>
                                     <Image
                                         src={project.image_url}
                                         alt={project.title}
                                         fill
                                         sizes="(max-width: 1200px) 50vw, 33vw"
-                                        style={{ objectFit: 'cover' }}
+                                        style={{ objectFit: 'contain', objectPosition: 'center top' }}
                                     />
                                     <div
                                         style={{

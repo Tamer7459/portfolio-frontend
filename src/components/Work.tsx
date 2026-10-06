@@ -271,7 +271,7 @@ function ProjectCard({
                     style={{
                         position: 'relative',
                         width: '100%',
-                        height: 220,
+                        height: 260,
                         overflow: 'hidden',
                         background: 'rgba(0, 0, 0, 0.4)'
                     }}
@@ -284,6 +284,7 @@ function ProjectCard({
                             fill
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             className="project-image"
+                            style={{ objectFit: 'contain', objectPosition: 'center top' }}
                         />
                     ) : (
                         <div
