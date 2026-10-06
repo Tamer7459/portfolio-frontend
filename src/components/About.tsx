@@ -77,12 +77,7 @@ const coreValuesData = [
     }
 ]
 
-const statsData = [
-    { label: 'Years Experience', value: 2, icon: 'chart' },
-    { label: 'Projects Completed', value: 10, icon: 'briefcase' },
-    { label: 'Happy Clients', value: 5, icon: 'users' },
-    { label: 'Tech Stack', value: 15, icon: 'gear' }
-]
+
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -516,6 +511,12 @@ export default function About({ profile }: { profile: Profile }) {
     const ref = useRef<HTMLElement>(null)
     const inView = useInView(ref, { once: false, margin: '-80px' })
     const parallaxY = useParallax(-0.04)
+    const statsData = [
+        { label: 'Years Experience', value: profile.years_experience, icon: 'chart' },
+        { label: 'Projects Completed', value: profile.projects_count, icon: 'briefcase' },
+        { label: 'Happy Clients', value: 5, icon: 'users' },
+        { label: 'Tech Stack', value: 15, icon: 'gear' }
+    ]
 
     return (
         <section
