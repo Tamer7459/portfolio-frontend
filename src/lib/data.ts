@@ -74,9 +74,9 @@ export const projects: Project[] = [
         ],
         github_url: 'https://github.com/dakirBLM/gfr-platform',
         live_url: 'https://gfr-platform.onrender.com',
-        image_url: '/projects/gfr-platform.jpg',
+        image_url: '/projects/gfr-platform.png',
         media: [
-            { type: 'image', url: '/projects/gfr-platform.jpg' }
+            { type: 'image', url: '/projects/gfr-platform.png' }
         ],
         status: 'live',
         featured: true
@@ -94,9 +94,9 @@ export const projects: Project[] = [
         ],
         github_url: 'https://github.com/dakirBLM/Nero',
         live_url: 'https://nero-69la.onrender.com',
-        image_url: '/projects/nero.jpg',
+        image_url: '/projects/nero.png',
         media: [
-            { type: 'image', url: '/projects/nero.jpg' }
+            { type: 'image', url: '/projects/nero.png' }
         ],
         status: 'live',
         featured: true
