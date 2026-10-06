@@ -10,7 +10,7 @@ interface TypewriterProps {
 
 const defaultTexts = [
     'Crafting digital experiences with precision and creativity',
-    'Software Engineer & Problem Solver',
+    'Software Engineer · Web, Mobile & Desktop Apps',
     'Building the future, one commit at a time'
 ]
 

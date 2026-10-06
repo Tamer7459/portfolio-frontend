@@ -583,7 +583,7 @@ export default function About({ profile }: { profile: Profile }) {
                         backgroundClip: 'text'
                     }}
                 >
-                    Software Engineer & Digital Creator
+                    Software Engineer · Web, Mobile & Desktop Apps
                 </h2>
                 <p
                     style={{
@@ -593,7 +593,7 @@ export default function About({ profile }: { profile: Profile }) {
                         lineHeight: 1.6
                     }}
                 >
-                    Transforming ideas into elegant, scalable web solutions with modern technologies and creative problem-solving.
+                    Transforming ideas into elegant, scalable web, mobile & desktop solutions with modern technologies and creative problem-solving.
                 </p>
             </motion.div>
 

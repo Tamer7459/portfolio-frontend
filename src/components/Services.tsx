@@ -31,9 +31,9 @@ const services: Service[] = [
     {
         icon: <Smartphone size={20} />,
         number: '03',
-        title: 'Mobile Development',
+        title: 'Mobile & Desktop Development',
         description:
-            'Cross-platform mobile solutions that work seamlessly across all devices with native performance.',
+            'Cross-platform solutions for mobile and desktop that work seamlessly across all devices with native performance.',
         tags: ['React Native', 'Flutter', 'iOS', 'Android']
     },
     {
