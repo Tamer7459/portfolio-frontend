@@ -63,25 +63,6 @@ export const blogPosts: BlogPost[] = []
 export const projects: Project[] = [
     {
         id: 1,
-        title: 'Sport avec Boubker',
-        category: 'best',
-        subtitle: 'Gym Management Platform (Next.js, Zustand, Recharts)',
-        description: 'Sport avec Boubker is a gym management platform built with Next.js 14 for a sports hall, delivered in French with full internationalization. It centralizes member management, subscriptions, and daily gym operations in a modern responsive interface with dark/light theme support.\n\nThe front-end is built with React 18, TypeScript, and Tailwind CSS, using next-intl for translations, next-themes for theming, Zustand for client-side state management, and Lucide icons throughout. Recharts powers analytics dashboards giving gym owners insight into memberships and activity, while a dedicated TypeScript back-end exposes the API consumed by the app.\n\nDeployed on Vercel with a clean modular architecture (app router, components, store, types), the project demonstrates production SaaS development for local businesses — multilingual UX, real-time dashboards, and scalable state management in a real client-facing product.',
-        tags: [
-            { id: 57, name: 'Next.js' },
-            { id: 58, name: 'TypeScript' },
-            { id: 59, name: 'Tailwind CSS' },
-            { id: 60, name: 'Zustand' }
-        ],
-        github_url: 'https://github.com/Tamer7459/Sport-avec-Boubker-frontend',
-        live_url: 'https://sport-avec-boubker-frontend.vercel.app',
-        image_url: null,
-        media: [],
-        status: 'live',
-        featured: true
-    },
-    {
-        id: 2,
         title: 'Tamer Academy',
         category: 'best',
         subtitle: 'Programming Learning App (Flutter, Dart, Firebase)',
@@ -94,8 +75,31 @@ export const projects: Project[] = [
         ],
         github_url: 'https://github.com/Tamer7459/tamer-academy',
         live_url: 'https://tamer-academy.web.app',
-        image_url: null,
-        media: [],
+        image_url: '/projects/tamer-academy.png',
+        media: [
+            { type: 'image', url: '/projects/tamer-academy.png' }
+        ],
+        status: 'live',
+        featured: true
+    },
+    {
+        id: 2,
+        title: 'Sport avec Boubker',
+        category: 'best',
+        subtitle: 'Gym Management Platform (Next.js, Zustand, Recharts)',
+        description: 'Sport avec Boubker is a gym management platform built with Next.js 14 for a sports hall, delivered in French with full internationalization. It centralizes member management, subscriptions, and daily gym operations in a modern responsive interface with dark/light theme support.\n\nThe front-end is built with React 18, TypeScript, and Tailwind CSS, using next-intl for translations, next-themes for theming, Zustand for client-side state management, and Lucide icons throughout. Recharts powers analytics dashboards giving gym owners insight into memberships and activity, while a dedicated TypeScript back-end exposes the API consumed by the app.\n\nDeployed on Vercel with a clean modular architecture (app router, components, store, types), the project demonstrates production SaaS development for local businesses — multilingual UX, real-time dashboards, and scalable state management in a real client-facing product.',
+        tags: [
+            { id: 57, name: 'Next.js' },
+            { id: 58, name: 'TypeScript' },
+            { id: 59, name: 'Tailwind CSS' },
+            { id: 60, name: 'Zustand' }
+        ],
+        github_url: 'https://github.com/Tamer7459/Sport-avec-Boubker-frontend',
+        live_url: 'https://sport-avec-boubker-frontend.vercel.app',
+        image_url: '/projects/sport-avec-boubker.png',
+        media: [
+            { type: 'image', url: '/projects/sport-avec-boubker.png' }
+        ],
         status: 'live',
         featured: true
     },
