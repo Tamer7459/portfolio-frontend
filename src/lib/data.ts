@@ -44,7 +44,7 @@ export const profile: Profile = {
     email: 'tamerinale@gmail.com',
     whatsapp: '+213549964508',
     years_experience: 3,
-    projects_count: 14,
+    projects_count: 16,
     skills: []
 }
 
@@ -63,6 +63,42 @@ export const blogPosts: BlogPost[] = []
 export const projects: Project[] = [
     {
         id: 1,
+        title: 'GFR Platform',
+        category: 'team',
+        subtitle: 'Global Academic Network for Researchers (Team Project · Django)',
+        description: 'GFR Platform (Global Forum for Researchers) is a team-built academic social network and research management platform developed with Django. It gives every researcher a single academic identity combining profile, publications, projects, and peer reviews — with live community stats such as 12,480 researchers, 312 institutions, and 24 journals.\n\nThe platform covers the full publishing workflow: manuscript submission to peer-reviewed open-access journals with double-blind review tracking in real time, research project collaboration with team task management, and year-round conferences and workshops. The marketing site presents the journey in three steps — create your profile, submit your work, collaborate and publish.\n\nBuilt collaboratively as a team using Django\'s MVT architecture with authentication, registration, and role-based flows, and deployed on Render. The project demonstrates large-scale product development, code collaboration through forks and pull requests, and shipping a production academic platform as a team.',
+        tags: [
+            { id: 51, name: 'Django' },
+            { id: 52, name: 'Python' },
+            { id: 53, name: 'JavaScript' }
+        ],
+        github_url: 'https://github.com/Tamer7459/gfr-platform',
+        live_url: 'https://gfr-platform.onrender.com',
+        image_url: null,
+        media: [],
+        status: 'live',
+        featured: true
+    },
+    {
+        id: 2,
+        title: 'NERO',
+        category: 'team',
+        subtitle: 'Rehabilitation Care Marketplace (Team Project · Django)',
+        description: 'NERO is a team-built bilingual (Arabic/English) rehabilitation-care platform developed with Django. It connects patients with the right rehabilitation clinics — patients describe their case and get matched to a suitable clinic, then share medical records, chat, and book appointments, all in one friendly place.\n\nThe platform serves two sides: a patient journey with smart clinic recommendations, request tracking, and ongoing contact, and a clinic portal where clinics register, build their page with treatments, photos, and videos, collect reviews, and receive bookings. A friendly AI assistant called King George guides visitors to the right place, whether they are patients looking for care or clinics getting set up.\n\nDeveloped collaboratively as a team with Django templates, authentication flows, and static asset management, and deployed on Render. The project showcases product thinking for healthcare marketplaces, bilingual UX, AI-assisted onboarding, and real team-based development workflows.',
+        tags: [
+            { id: 54, name: 'Django' },
+            { id: 55, name: 'Python' },
+            { id: 56, name: 'JavaScript' }
+        ],
+        github_url: '',
+        live_url: 'https://nero-69la.onrender.com',
+        image_url: null,
+        media: [],
+        status: 'live',
+        featured: true
+    },
+    {
+        id: 3,
         title: 'INVOICEPRO',
         category: 'best',
         subtitle: 'Smart Invoicing SaaS (Next.js, TypeScript, Tailwind CSS)',
@@ -85,7 +121,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 2,
+        id: 4,
         title: 'Modern Healthcare Management System',
         category: 'best',
         subtitle: 'CareFlow - Hospital Management System (Next.js, Radix UI, Zustand)',
@@ -109,7 +145,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 3,
+        id: 5,
         title: 'Le Bon Cion Nouri Mila',
         category: 'best',
         subtitle: 'E-Commerce Storefront with Admin Dashboard (Upstash Redis)',
@@ -130,7 +166,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 4,
+        id: 6,
         title: 'GFR Project',
         category: 'best',
         subtitle: 'Full-Stack Web Application (1st Place Hackathon Winner)',
@@ -150,7 +186,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 5,
+        id: 7,
         title: 'LibraSys',
         category: 'best',
         subtitle: 'Library Management System Built with Django',
@@ -172,7 +208,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 6,
+        id: 8,
         title: 'XO Game',
         category: 'simple',
         subtitle: 'Tic Tac Toe - DOM Manipulation & Game State Logic',
@@ -193,7 +229,7 @@ export const projects: Project[] = [
         featured: false
     },
     {
-        id: 7,
+        id: 9,
         title: 'CURDS',
         category: 'simple',
         subtitle: 'CRUD Web Application (Create, Read, Update, Delete)',
@@ -213,7 +249,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 8,
+        id: 10,
         title: 'Drag-and-Drop',
         category: 'simple',
         subtitle: 'Interactive Drag and Drop Interface using JavaScript',
@@ -233,7 +269,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 9,
+        id: 11,
         title: 'Make-a-creative-landing-page',
         category: 'simple',
         subtitle: 'Modern UI Landing Page for Web Projects',
@@ -253,7 +289,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 10,
+        id: 12,
         title: 'Calculator',
         category: 'simple',
         subtitle: 'Simple, Responsive & Interactive Web Calculator',
@@ -273,7 +309,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 11,
+        id: 13,
         title: 'Make-a-Scrolling-Website',
         category: 'simple',
         subtitle: 'Smooth Scrolling, Modern UI & Interactive Web Experience',
@@ -293,7 +329,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 12,
+        id: 14,
         title: 'Make-a-Image-Edito',
         category: 'simple',
         subtitle: 'Simple, Fast & Interactive Image Editing Tool',
@@ -313,7 +349,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 13,
+        id: 15,
         title: 'Todo List App',
         category: 'simple',
         subtitle: 'Simple, Efficient & Interactive Task Management Application',
@@ -332,7 +368,7 @@ export const projects: Project[] = [
         featured: true
     },
     {
-        id: 14,
+        id: 16,
         title: 'Prayer Times App',
         category: 'simple',
         subtitle: 'Accurate, Simple & Real-Time Prayer Time Tracker',
