@@ -129,7 +129,7 @@ export default function Hero({ profile }: { profile: Profile }) {
     const parts = profile.name.split(' ')
     const firstName = parts[0]
     const lastName = parts.slice(1).join(' ')
-    const photoUrl = profile.photo_url ?? 'https://res.cloudinary.com/dme6jhgkm/image/upload/v1780237622/my_photo_gfggko.jpg'
+    const photoUrl = profile.photo_url ?? 'https://res.cloudinary.com/dme6jhgkm/image/upload/v1791320988/myphoto_fbiubg.jpg'
 
     return (
         <section
