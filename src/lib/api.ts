@@ -1,1 +1,1 @@
-export type { Profile, Project, BlogPost } from './data'
+export type { Profile, Project, BlogPost, Lesson, LessonBlock } from './data'
