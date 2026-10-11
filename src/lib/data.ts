@@ -81,35 +81,7 @@ export interface Lesson {
     content: LessonBlock[]
 }
 
-export const lessons: Lesson[] = [
-    {
-        id: 1,
-        title: 'Build Your First Flutter App in 30 Minutes',
-        excerpt: 'A beginner-friendly walkthrough: from installing Flutter to running your first app on Android and the web — with images and code at every step.',
-        cover_url: '/projects/tamer-academy.png',
-        tags: [
-            { id: 101, name: 'Flutter' },
-            { id: 102, name: 'Dart' },
-            { id: 103, name: 'Beginner' }
-        ],
-        read_time: 5,
-        created_at: '2026-10-06',
-        featured: true,
-        content: [
-            { type: 'paragraph', text: 'Every developer remembers their first running app. In this lesson we go from zero to a working Flutter application that runs on both Android and the web — the exact path I teach my own students.' },
-            { type: 'heading', text: '1. What you will build' },
-            { type: 'paragraph', text: 'A small academy-style home screen with a logo, a headline, and a button. Simple on purpose: the goal is the full loop — write, run, see.' },
-            { type: 'image', url: '/projects/tamer-academy.png', alt: 'Tamer Academy home screen', caption: 'Example result: the Tamer Academy home screen built with Flutter.' },
-            { type: 'heading', text: '2. The only code you need' },
-            { type: 'paragraph', text: 'Create a new project with flutter create my_first_app, then replace lib/main.dart with this:' },
-            { type: 'code', language: 'dart', code: 'import \'package:flutter/material.dart\';\n\nvoid main() => runApp(const MyApp());\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Scaffold(\n        appBar: AppBar(title: const Text(\'My First App\')),\n        body: const Center(\n          child: Text(\'I built this!\'),\n        ),\n      ),\n    );\n  }\n}' },
-            { type: 'heading', text: '3. Run it everywhere' },
-            { type: 'list', items: ['Run flutter run to launch on Android', 'Run flutter run -d chrome to launch on the web', 'Change the text, save, and watch hot reload update it instantly'] },
-            { type: 'quote', text: 'You learn programming by building, not by watching. One small running app beats ten hours of tutorials.' },
-            { type: 'paragraph', text: 'Next lesson: adding navigation and a second screen. Place an image block anywhere in this content array and it renders exactly there — top, middle, or end.' }
-        ]
-    }
-]
+export const lessons: Lesson[] = []
 
 export const projects: Project[] = [
     {
