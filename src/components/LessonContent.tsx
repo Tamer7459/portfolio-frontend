@@ -1,26 +1,83 @@
+import { Fragment } from 'react'
 import Image from 'next/image'
 import type { LessonBlock } from '@/lib/api'
 
-export default function LessonContent({ blocks }: { blocks: LessonBlock[] }) {
+function renderInline(text: string, keyPrefix: string) {
+    const parts = text.split(/(\*\*[^*]+\*\*|`[^`]+`|\[[^\]]+\]\([^)]+\))/g)
+    return parts
+        .filter(Boolean)
+        .map((part, i) => {
+            const key = `${keyPrefix}-${i}`
+            if (part.startsWith('**') && part.endsWith('**') && part.length > 4) {
+                return <strong key={key} style={{ color: 'var(--white)' }}>{part.slice(2, -2)}</strong>
+            }
+            if (part.startsWith('`') && part.endsWith('`') && part.length > 2) {
+                return (
+                    <code
+                        key={key}
+                        dir="ltr"
+                        style={{
+                            background: 'rgba(204, 17, 17, 0.12)',
+                            border: '1px solid rgba(204, 17, 17, 0.25)',
+                            borderRadius: 5,
+                            padding: '1px 7px',
+                            fontSize: '0.92em',
+                            color: 'var(--red2)',
+                            whiteSpace: 'nowrap'
+                        }}
+                    >
+                        {part.slice(1, -1)}
+                    </code>
+                )
+            }
+            const linkMatch = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/)
+            if (linkMatch) {
+                return (
+                    <a
+                        key={key}
+                        href={linkMatch[2]}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ color: 'var(--red2)', textDecoration: 'underline' }}
+                    >
+                        {linkMatch[1]}
+                    </a>
+                )
+            }
+            return <Fragment key={key}>{part}</Fragment>
+        })
+}
+
+export default function LessonContent({
+    blocks,
+    dir = 'ltr'
+}: {
+    blocks: LessonBlock[]
+    dir?: 'rtl' | 'ltr'
+}) {
+    const isRtl = dir === 'rtl'
     return (
         <div
+            dir={dir}
             style={{
                 display: 'flex',
                 flexDirection: 'column',
-                gap: 28
+                gap: 28,
+                textAlign: isRtl ? 'right' : 'left'
             }}
         >
             {blocks.map((block, i) => {
                 switch (block.type) {
-                    case 'heading':
+                    case 'heading': {
+                        const isH3 = block.level === 3
                         return (
                             <h2
                                 key={i}
                                 style={{
-                                    fontSize: 'clamp(20px, 3vw, 28px)',
+                                    fontSize: isH3 ? 'clamp(17px, 2.4vw, 22px)' : 'clamp(20px, 3vw, 28px)',
                                     fontWeight: 800,
                                     color: 'var(--white)',
-                                    letterSpacing: -0.5,
+                                    letterSpacing: isRtl ? 0 : -0.5,
                                     margin: '12px 0 0 0',
                                     display: 'flex',
                                     alignItems: 'center',
@@ -30,7 +87,7 @@ export default function LessonContent({ blocks }: { blocks: LessonBlock[] }) {
                                 <span
                                     style={{
                                         width: 3,
-                                        height: 26,
+                                        height: isH3 ? 20 : 26,
                                         background: 'var(--red)',
                                         borderRadius: 2,
                                         display: 'block',
@@ -40,6 +97,7 @@ export default function LessonContent({ blocks }: { blocks: LessonBlock[] }) {
                                 {block.text}
                             </h2>
                         )
+                    }
                     case 'paragraph':
                         return (
                             <p
@@ -48,12 +106,12 @@ export default function LessonContent({ blocks }: { blocks: LessonBlock[] }) {
                                     fontFamily: "'DM Mono', monospace",
                                     fontSize: 14,
                                     color: 'rgba(255, 255, 255, 0.7)',
-                                    lineHeight: 1.9,
+                                    lineHeight: 2,
                                     letterSpacing: 0.3,
                                     margin: 0
                                 }}
                             >
-                                {block.text}
+                                {renderInline(block.text, `p-${i}`)}
                             </p>
                         )
                     case 'image': {
@@ -130,11 +188,13 @@ export default function LessonContent({ blocks }: { blocks: LessonBlock[] }) {
                         return (
                             <div
                                 key={i}
+                                dir="ltr"
                                 style={{
                                     borderRadius: 12,
                                     overflow: 'hidden',
                                     border: '1px solid rgba(204, 17, 17, 0.2)',
-                                    background: '#0d0d0d'
+                                    background: '#0d0d0d',
+                                    textAlign: 'left'
                                 }}
                             >
                                 {block.language && (
@@ -169,7 +229,7 @@ export default function LessonContent({ blocks }: { blocks: LessonBlock[] }) {
                         )
                     case 'list':
                         return (
-                            <ul
+                            <ol
                                 key={i}
                                 style={{
                                     margin: 0,
@@ -177,7 +237,8 @@ export default function LessonContent({ blocks }: { blocks: LessonBlock[] }) {
                                     listStyle: 'none',
                                     display: 'flex',
                                     flexDirection: 'column',
-                                    gap: 10
+                                    gap: 10,
+                                    counterReset: 'lesson-step'
                                 }}
                             >
                                 {block.items.map((item, j) => (
@@ -194,24 +255,112 @@ export default function LessonContent({ blocks }: { blocks: LessonBlock[] }) {
                                             fontFamily: "'DM Mono', monospace",
                                             fontSize: 13,
                                             color: 'rgba(255, 255, 255, 0.8)',
-                                            lineHeight: 1.7
+                                            lineHeight: 1.9,
+                                            counterIncrement: block.ordered ? 'lesson-step' : undefined
                                         }}
                                     >
-                                        <span
-                                            style={{
-                                                width: 6,
-                                                height: 6,
-                                                borderRadius: '50%',
-                                                background: 'var(--red)',
-                                                flexShrink: 0,
-                                                marginTop: 8,
-                                                boxShadow: '0 0 8px var(--red)'
-                                            }}
-                                        />
-                                        {item}
+                                        {block.ordered ? (
+                                            <span
+                                                style={{
+                                                    minWidth: 26,
+                                                    height: 26,
+                                                    borderRadius: '50%',
+                                                    background: 'rgba(204, 17, 17, 0.15)',
+                                                    border: '1px solid rgba(204, 17, 17, 0.4)',
+                                                    color: 'var(--red2)',
+                                                    fontSize: 11,
+                                                    fontWeight: 700,
+                                                    display: 'inline-flex',
+                                                    alignItems: 'center',
+                                                    justifyContent: 'center',
+                                                    flexShrink: 0,
+                                                    marginTop: 2
+                                                }}
+                                            >
+                                                {j + 1}
+                                            </span>
+                                        ) : (
+                                            <span
+                                                style={{
+                                                    width: 6,
+                                                    height: 6,
+                                                    borderRadius: '50%',
+                                                    background: 'var(--red)',
+                                                    flexShrink: 0,
+                                                    marginTop: 10,
+                                                    boxShadow: '0 0 8px var(--red)'
+                                                }}
+                                            />
+                                        )}
+                                        <span>{renderInline(item, `li-${i}-${j}`)}</span>
                                     </li>
                                 ))}
-                            </ul>
+                            </ol>
+                        )
+                    case 'table':
+                        return (
+                            <div
+                                key={i}
+                                style={{
+                                    overflowX: 'auto',
+                                    borderRadius: 12,
+                                    border: '1px solid rgba(204, 17, 17, 0.2)'
+                                }}
+                            >
+                                <table
+                                    style={{
+                                        width: '100%',
+                                        borderCollapse: 'collapse',
+                                        fontFamily: "'DM Mono', monospace",
+                                        fontSize: 12.5,
+                                        lineHeight: 1.9
+                                    }}
+                                >
+                                    <thead>
+                                        <tr style={{ background: 'rgba(204, 17, 17, 0.12)' }}>
+                                            {block.headers.map((h, j) => (
+                                                <th
+                                                    key={j}
+                                                    style={{
+                                                        padding: '12px 16px',
+                                                        textAlign: isRtl ? 'right' : 'left',
+                                                        color: 'var(--red2)',
+                                                        fontWeight: 700,
+                                                        borderBottom: '1px solid rgba(204, 17, 17, 0.25)',
+                                                        whiteSpace: 'nowrap'
+                                                    }}
+                                                >
+                                                    {h}
+                                                </th>
+                                            ))}
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {block.rows.map((row, r) => (
+                                            <tr
+                                                key={r}
+                                                style={{
+                                                    background: r % 2 === 0 ? 'rgba(255,255,255,0.02)' : 'transparent',
+                                                    borderBottom: '1px solid rgba(255, 255, 255, 0.06)'
+                                                }}
+                                            >
+                                                {row.map((cell, c) => (
+                                                    <td
+                                                        key={c}
+                                                        style={{
+                                                            padding: '12px 16px',
+                                                            color: 'rgba(255, 255, 255, 0.75)',
+                                                            verticalAlign: 'top'
+                                                        }}
+                                                    >
+                                                        {renderInline(cell, `t-${i}-${r}-${c}`)}
+                                                    </td>
+                                                ))}
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
                         )
                     case 'quote':
                         return (
@@ -220,16 +369,17 @@ export default function LessonContent({ blocks }: { blocks: LessonBlock[] }) {
                                 style={{
                                     margin: 0,
                                     padding: '20px 24px',
-                                    borderLeft: '3px solid var(--red)',
+                                    borderLeft: isRtl ? undefined : '3px solid var(--red)',
+                                    borderRight: isRtl ? '3px solid var(--red)' : undefined,
                                     background: 'rgba(204, 17, 17, 0.06)',
-                                    borderRadius: '0 12px 12px 0',
-                                    fontSize: 16,
+                                    borderRadius: isRtl ? '12px 0 0 12px' : '0 12px 12px 0',
+                                    fontSize: 15,
                                     fontStyle: 'italic',
                                     color: 'var(--white)',
-                                    lineHeight: 1.8
+                                    lineHeight: 2
                                 }}
                             >
-                                {block.text}
+                                {renderInline(block.text, `q-${i}`)}
                             </blockquote>
                         )
                     default:

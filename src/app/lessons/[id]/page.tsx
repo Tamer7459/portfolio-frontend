@@ -160,7 +160,7 @@ export default async function LessonDetailPage({
                     </div>
                 )}
 
-                <LessonContent blocks={lesson.content} />
+                <LessonContent blocks={lesson.content} dir={lesson.dir} />
 
                 {lessons.length > 1 && (
                     <div
